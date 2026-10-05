@@ -19,9 +19,15 @@ def normalizar_ticker(ticker: str) -> str:
     return ticker
 
 
+# Corretagem cobrada sobre o valor bruto da venda.
+TAXA_CORRETAGEM_VENDA = 0.005
+
+
 def lucro_da_venda(preco: float, preco_medio: float, quantidade: float) -> float:
-    """Lucro ou prejuízo da venda sobre o preço médio atual."""
-    return (preco - preco_medio) * quantidade
+    """Lucro ou prejuízo da venda, já descontada a corretagem."""
+    lucro_bruto = (preco - preco_medio) * quantidade
+    corretagem = preco * quantidade * TAXA_CORRETAGEM_VENDA
+    return lucro_bruto - corretagem
 
 
 def processar_dados(df: pd.DataFrame):
