@@ -18,6 +18,13 @@ streamlit run app.py
 
 A aplicação abrirá automaticamente no navegador em `http://localhost:8501`
 
+### 3. Rodar os testes
+
+```bash
+pip install -r requirements.txt
+pytest
+```
+
 ## 📦 Dependências
 
 - **streamlit** - Framework web para interface
